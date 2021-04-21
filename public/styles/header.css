@@ -1,0 +1,12 @@
+.topHeader {
+  height: 400px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  background-color: #f2914b;
+  flex-direction: column;
+  align-items: center;
+  z-index: -1;
+  background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
+  margin-top: 5em;
+}

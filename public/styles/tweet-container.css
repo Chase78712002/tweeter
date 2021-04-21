@@ -1,0 +1,57 @@
+
+
+article.tweet {
+  box-sizing: border-box;
+  border: 0.3em solid #642d05;
+  height: auto;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin: 5vh 0px;
+  width: 100%;
+}
+
+article.tweet:hover {
+  box-shadow: 10px 30px 5px #712626;
+}
+
+
+article.tweet p {
+  margin: 1em 0.7em;
+  padding-bottom: 0.5em;
+  border-bottom: 5px solid #642c05;
+}
+
+article.tweet header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 1em;
+  align-items: center;
+}
+
+.profile-pic {
+  font-size: 1.5em;
+}
+
+.tweet header i.fas {
+  font-size: 2em;
+  margin-right: 0.3em;
+}
+
+article.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.1em 1em;
+}
+.fa-angle-double-down {
+  color: red;
+}
+.fa-canadian-maple-leaf:hover {
+  color: #ff6a6a;
+}
+.fa-retweet:hover {
+  color: #ff6a6a;
+}
+
+.fa-heart:hover {
+  color: #ff6a6a;
+}

@@ -1,0 +1,47 @@
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#tweet-text {
+  display: flex;
+  border: none;
+  border-bottom: 5px solid #642c05;
+  resize: none;
+  background: transparent;
+}
+
+.tweetForm {
+  height: 7.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 80vw;
+}
+.counter {
+  font-family: Bungee;
+  font-size: larger;
+  color: #ac6f45;
+}
+.overCount {
+  color: red;
+}
+
+.tweetForm div {
+  display: flex;
+  justify-content: space-between;
+}
+.tweetForm label {
+  font-size: larger;
+  font-family: fantasy, sans-serif;
+  color: #6e482d94;
+  font-weight: 600;
+}
+form button {
+  font-size: 0.7em;
+  background-color: #4156a1;
+  color: #FFFF;
+  font-family: 'Bungee';
+  padding: 1em;
+  border-radius: 30px;
+}
