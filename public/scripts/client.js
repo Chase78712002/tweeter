@@ -6,13 +6,13 @@
 
 $(document).ready(() => {
   const renderTweets = (tweetsArray) => {
-    
+
     // loops through tweetsArray
     for (const tweetObj of tweetsArray) {
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweetObj);
-      // takes return value and appends it to the tweets container
       $(".tweet-container").append($tweet);
+      // takes return value and appends it to the tweets container
     }
   };
 
@@ -50,7 +50,7 @@ $(document).ready(() => {
       method: "GET"
     })
     .then((result)=> {
-      result = result.sort((a,b) => b.created_at - a.created_at);
+      result.sort((a,b) => b.created_at - a.created_at);
       // result is an array of objects
       renderTweets(result);
       timeago.render(document.querySelectorAll(".need_to_be_rendered"));
@@ -83,7 +83,9 @@ $(document).ready(() => {
       data: queryString
     })
     .then((result)=> {
-      loadTweets();
+      const $tweet = createTweetElement(result);
+      $(".tweet-container").prepend($tweet);
+      timeago.render(document.querySelectorAll(".need_to_be_rendered"));
     })
   })
 
