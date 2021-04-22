@@ -6,6 +6,7 @@
 
 $(document).ready(() => {
   const renderTweets = (tweetsArray) => {
+    
     // loops through tweetsArray
     for (const tweetObj of tweetsArray) {
       // calls createTweetElement for each tweet
@@ -30,7 +31,7 @@ $(document).ready(() => {
             ${tweetDataObj.content.text}
           </p>
           <footer>
-            <div class="need_to_be_rendered" datetime=${JSON.stringify(tweetDataObj.created_at)}>
+            <div class="need_to_be_rendered" datetime=${tweetDataObj.created_at}>
             </div>
             <div>
               <i class="fab fa-canadian-maple-leaf"></i>
@@ -49,15 +50,16 @@ $(document).ready(() => {
       method: "GET"
     })
     .then((result)=> {
+      result = result.sort((a,b) => b.created_at - a.created_at);
       // result is an array of objects
       renderTweets(result);
       timeago.render(document.querySelectorAll(".need_to_be_rendered"));
     })
   };
 
+  loadTweets();
 
   $.ajax("http://localhost:8080/", { method: "GET" }).then((result) => {
-    loadTweets();
   });
 
   $("form").submit(function (event) {
