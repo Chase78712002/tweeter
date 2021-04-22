@@ -79,4 +79,16 @@ $(document).ready(() => {
     renderTweets(data);
     timeago.render(document.querySelectorAll(".need_to_be_rendered"));
   });
+
+  $("form").submit(function (event) {
+    event.preventDefault();
+    console.log("Hi! I've prevented the default behavior!")
+    const queryString = $(this).serialize()
+    console.log(queryString);
+
+    $.ajax("http://localhost:8080/tweets", {
+      method: "POST",
+      data: queryString
+    })
+  })
 });
