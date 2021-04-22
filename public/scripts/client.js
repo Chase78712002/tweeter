@@ -8,31 +8,31 @@ $(document).ready(() => {
   
 
   // Fake data taken from initial-tweets.json
-  const data = [
-    {
-      user: {
-        name: "Newton",
-        avatars: "https://i.imgur.com/73hZDYK.png",
-        handle: "@SirIsaac",
-      },
-      content: {
-        text:
-          "If I have seen further it is by standing on the shoulders of giants",
-      },
-      created_at: 1461116232227,
-    },
-    {
-      user: {
-        name: "Descartes",
-        avatars: "https://i.imgur.com/nlhLi3I.png",
-        handle: "@rd",
-      },
-      content: {
-        text: "Je pense , donc je suis",
-      },
-      created_at: 1461113959088,
-    },
-  ];
+  // const data = [
+  //   {
+  //     user: {
+  //       name: "Newton",
+  //       avatars: "https://i.imgur.com/73hZDYK.png",
+  //       handle: "@SirIsaac",
+  //     },
+  //     content: {
+  //       text:
+  //         "If I have seen further it is by standing on the shoulders of giants",
+  //     },
+  //     created_at: 1461116232227,
+  //   },
+  //   {
+  //     user: {
+  //       name: "Descartes",
+  //       avatars: "https://i.imgur.com/nlhLi3I.png",
+  //       handle: "@rd",
+  //     },
+  //     content: {
+  //       text: "Je pense , donc je suis",
+  //     },
+  //     created_at: 1461113959088,
+  //   },
+  // ];
 
   const renderTweets = (tweetsArray) => {
     // loops through tweetsArray
@@ -73,11 +73,24 @@ $(document).ready(() => {
     return $tweetElement;
   };
 
+  const loadTweets = () => {
+    // responsible for fetching tweets.
+    $.ajax("/tweets", {
+      method: "GET"
+    })
+    .then((result)=> {
+      console.log(result); // result is an array of objects
+      renderTweets(result);
+      timeago.render(document.querySelectorAll(".need_to_be_rendered"));
+
+    })
+  };
+
+  
   
 
   $.ajax("http://localhost:8080/", { method: "GET" }).then((result) => {
-    renderTweets(data);
-    timeago.render(document.querySelectorAll(".need_to_be_rendered"));
+    loadTweets();
   });
 
   $("form").submit(function (event) {
@@ -86,9 +99,10 @@ $(document).ready(() => {
     const queryString = $(this).serialize()
     console.log(queryString);
 
-    $.ajax("http://localhost:8080/tweets", {
+    $.ajax("/tweets", {
       method: "POST",
       data: queryString
     })
   })
+
 });
