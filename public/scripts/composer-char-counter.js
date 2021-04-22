@@ -1,4 +1,4 @@
-console.log("This is the char counter file!!");
+// console.log("This is the char counter file!!");
 
 $(document).ready(() => {
   // code..
@@ -7,7 +7,7 @@ $(document).ready(() => {
   let charCount = 0;
   $("#tweet-text").on('input',function () {
     const maxTweet = 140;
-    charCount = $(this).val().length;
+    charCount = $(this).val().trim().length;
     let counter = $(this).siblings('div').children('output');
     let diff = maxTweet - charCount;
     if (diff < 0) {
