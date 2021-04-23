@@ -3,7 +3,7 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- External CSS -->
     <link
       rel="stylesheet"
@@ -15,7 +15,10 @@
       href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@1,300;1,600&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -56,9 +59,8 @@
         </div>
       </div>
     </nav>
-    
+
     <main class="wholePage">
-      
       <header class="topHeader">
         <div>
           <img src="/images/profile-hex.png" />
@@ -70,16 +72,19 @@
       <!-- Page-specific (main) content here -->
       <main class="container">
         <section class="new-tweet">
-          
           <div class="error-msg" id="space-error">
             <i class="fas fa-exclamation-triangle"></i>
             The text field is empty!
             <i class="fas fa-exclamation-triangle"></i>
           </div>
-          
+
           <form action="/tweets/" , method="POST" class="tweetForm">
             <label for="text">Compose Tweet</label>
-            <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+            <textarea
+              name="text"
+              id="tweet-text"
+              placeholder="What are you humming about?"
+            ></textarea>
             <div>
               <button type="submit" id="tweetButton">Tweet</button>
               <div class="error-msg" id="max-char">
@@ -87,9 +92,10 @@
                 Max character counts: 140!
                 <i class="fas fa-exclamation-triangle"></i>
               </div>
-              <output name="counter" class="counter" for="tweet-text">140</output>
+              <output name="counter" class="counter" for="tweet-text"
+                >140</output
+              >
             </div>
-            
           </form>
         </section>
         <section class="tweet-container"></section>

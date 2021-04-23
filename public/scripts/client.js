@@ -6,13 +6,12 @@
 
 $(document).ready(() => {
   const renderTweets = (tweetsArray) => {
-
     // loops through tweetsArray
     for (const tweetObj of tweetsArray) {
       // calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweetObj);
-      $(".tweet-container").append($tweet);
       // takes return value and appends it to the tweets container
+      $(".tweet-container").append($tweet);
     }
   };
 
@@ -31,7 +30,9 @@ $(document).ready(() => {
             ${escape(tweetDataObj.content.text)}
           </p>
           <footer>
-            <div class="need_to_be_rendered" datetime=${escape(tweetDataObj.created_at)}>
+            <div class="need_to_be_rendered" datetime=${escape(
+              tweetDataObj.created_at
+            )}>
             </div>
             <div>
               <i class="fab fa-canadian-maple-leaf"></i>
@@ -47,14 +48,13 @@ $(document).ready(() => {
   const loadTweets = () => {
     // responsible for fetching tweets.
     $.ajax("/tweets", {
-      method: "GET"
-    })
-    .then((result)=> {
-      result.sort((a,b) => b.created_at - a.created_at);
+      method: "GET",
+    }).then((result) => {
+      result.sort((a, b) => b.created_at - a.created_at);
       // result is an array of objects
       renderTweets(result);
       timeago.render(document.querySelectorAll(".need_to_be_rendered"));
-    })
+    });
   };
 
   const escape = function (str) {
@@ -62,25 +62,23 @@ $(document).ready(() => {
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
-
+  // loading tweets
   loadTweets();
+  // hiding all error message elements when starting
   $(".error-msg").hide();
 
-  $.ajax("http://localhost:8080/", { method: "GET" }).then((result) => {
-  });
-
+  // form submission
   $("form").submit(function (event) {
     event.preventDefault();
-    console.log("Hi! I've prevented the default behavior!")
-    const remainChar = $(this).children('div').children('output').val();
-    const inputBox = $('#tweet-text').val();
-    // console.log(inputBox);
+    console.log("Hi! I've prevented the default behavior!");
+    const remainChar = $(this).children("div").children("output").val();
+    const inputBox = $("#tweet-text").val();
     if (remainChar < 0) {
       $("#space-error").slideUp(700);
       $("#max-char").slideDown(700);
       return;
     }
-    
+
     if (!inputBox || inputBox.trim().length === 0) {
       $("#max-char").slideUp(700);
       $("#space-error").slideDown(700);
@@ -90,39 +88,37 @@ $(document).ready(() => {
     $("#space-error").slideUp(700);
     $("#max-char").slideUp(700);
 
-    const queryString = $(this).serialize()
+    const queryString = $(this).serialize();
 
     $.ajax("/tweets", {
       method: "POST",
-      data: queryString
-    })
-    .then((result)=> {
+      data: queryString,
+    }).then((result) => {
       const $tweet = createTweetElement(result);
       $(".tweet-container").prepend($tweet);
       $("#tweet-text").val("");
       $(".counter").val(140);
       timeago.render(document.querySelectorAll(".need_to_be_rendered"));
-    })
-  })
+    });
+  });
 
   // Compose button
-  $("#navTweet").click(function(){
-    $(".tweetForm").slideToggle(700, function() {
-      $(this).children('textarea').focus();
+  $("#navTweet").click(function () {
+    $(".tweetForm").slideToggle(700, function () {
+      $(this).children("textarea").focus();
     });
-  })
-
-  $(window).scroll(function() {
+  });
+  // Scroll to top button
+  $(window).scroll(function () {
     $("button#toTop").fadeIn();
-    if($(this).scrollTop() === 0) {
+    if ($(this).scrollTop() === 0) {
       $("button#toTop").fadeOut();
     }
-    $("button#toTop").click(()=> {
+    $("button#toTop").click(() => {
       $(window).scrollTop(0);
-      $(".tweetForm").slideDown(700, function() {
-        $(this).children('textarea').focus();
+      $(".tweetForm").slideDown(700, function () {
+        $(this).children("textarea").focus();
       });
-    })
-  })
-
+    });
+  });
 });

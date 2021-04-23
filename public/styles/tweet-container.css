@@ -1,4 +1,3 @@
-
 section.tweet-container {
   display: flex;
   flex-direction: column;
@@ -13,7 +12,7 @@ article.tweet {
   margin: 2% 0px;
   width: 100%;
   overflow-wrap: anywhere;
-  font-family: 'Original Surfer';
+  font-family: "Original Surfer";
   color: #3b131385;
 }
 
@@ -50,13 +49,10 @@ article.tweet footer {
   font-size: 1rem;
 }
 
-
-
 .tweet header i.fas {
   font-size: 2em;
   margin-right: 0.3em;
 }
-
 
 .fa-angle-double-down {
   color: red;
@@ -78,7 +74,7 @@ article.tweet footer {
 
 .error-msg {
   color: red;
-  font-family: 'Bungee';
+  font-family: "Bungee";
   font-size: 1rem;
 }
 

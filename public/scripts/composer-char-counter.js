@@ -1,9 +1,4 @@
-// console.log("This is the char counter file!!");
-
 $(document).ready(() => {
-  // code..
-  console.log("DOM is now ready to be manipulated with jQuery");
-
   let charCount = 0;
   $("#tweet-text").on('input',function () {
     const maxTweet = 140;
