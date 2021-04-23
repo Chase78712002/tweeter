@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: sienna;
 }
 #tweet-text {
   display: flex;
@@ -9,18 +10,24 @@
   border-bottom: 5px solid #642c05;
   resize: none;
   background: transparent;
+  font-family: 'Bungee';
+  font-size: 1.1rem;
 }
 
 .tweetForm {
   height: 7.5em;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 80vw;
+  justify-content: space-evenly;
+  width: 100%;
+}
+::placeholder {
+  color: #a78f7d;
+  font-family: 'Bungee';
+  font-size: 0.8rem;
 }
 .counter {
   font-family: Bungee;
-  font-size: larger;
   color: #ac6f45;
 }
 .overCount {
@@ -30,15 +37,14 @@
 .tweetForm div {
   display: flex;
   justify-content: space-between;
+  font-size: 0.6em;
 }
-.tweetForm label {
-  font-size: larger;
-  font-family: fantasy, sans-serif;
-  color: #6e482d94;
+label {
+  align-self: center;
+  font-family: 'Original Surfer';
   font-weight: 600;
 }
 form button {
-  font-size: 0.7em;
   background-color: #4156a1;
   color: #FFFF;
   font-family: 'Bungee';

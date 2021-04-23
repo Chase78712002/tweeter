@@ -22,16 +22,16 @@ $(document).ready(() => {
     <article class="tweet">
           <header>
             <div class="profile-pic">
-              <img src=${tweetDataObj.user.avatars} />
-              ${tweetDataObj.user.name}
+              <img src=${escape(tweetDataObj.user.avatars)} />
+              ${escape(tweetDataObj.user.name)}
             </div>
-            <div>${tweetDataObj.user.handle}</div>
+            <div>${escape(tweetDataObj.user.handle)}</div>
           </header>
           <p>
-            ${tweetDataObj.content.text}
+            ${escape(tweetDataObj.content.text)}
           </p>
           <footer>
-            <div class="need_to_be_rendered" datetime=${tweetDataObj.created_at}>
+            <div class="need_to_be_rendered" datetime=${escape(tweetDataObj.created_at)}>
             </div>
             <div>
               <i class="fab fa-canadian-maple-leaf"></i>
@@ -57,7 +57,14 @@ $(document).ready(() => {
     })
   };
 
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   loadTweets();
+  $(".error-msg").hide();
 
   $.ajax("http://localhost:8080/", { method: "GET" }).then((result) => {
   });
@@ -67,15 +74,22 @@ $(document).ready(() => {
     console.log("Hi! I've prevented the default behavior!")
     const remainChar = $(this).children('div').children('output').val();
     const inputBox = $('#tweet-text').val();
+    // console.log(inputBox);
     if (remainChar < 0) {
-      alert('Max character counts exceeded!!');
+      $("#space-error").slideUp(700);
+      $("#max-char").slideDown(700);
       return;
     }
     
     if (!inputBox || inputBox.trim().length === 0) {
-      alert('Please enter at least one character in the text field!');
+      $("#max-char").slideUp(700);
+      $("#space-error").slideDown(700);
       return;
     }
+
+    $("#space-error").slideUp(700);
+    $("#max-char").slideUp(700);
+
     const queryString = $(this).serialize()
 
     $.ajax("/tweets", {
@@ -85,6 +99,8 @@ $(document).ready(() => {
     .then((result)=> {
       const $tweet = createTweetElement(result);
       $(".tweet-container").prepend($tweet);
+      $("#tweet-text").val("");
+      $(".counter").val(140);
       timeago.render(document.querySelectorAll(".need_to_be_rendered"));
     })
   })

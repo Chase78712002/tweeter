@@ -1,47 +1,63 @@
 
+section.tweet-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
 
 article.tweet {
   box-sizing: border-box;
   border: 0.3em solid #642d05;
   height: auto;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  margin: 2.5vh 0px;
+  margin: 2% 0px;
   width: 100%;
+  overflow-wrap: anywhere;
+  font-family: 'Original Surfer';
+  color: #3b131385;
 }
 
 article.tweet:hover {
   box-shadow: 10px 30px 5px #712626;
 }
 
-
-article.tweet p {
-  margin: 1em 0.7em;
-  padding-bottom: 0.5em;
-  border-bottom: 5px solid #642c05;
+.profile-pic {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  font-size: 1rem;
+}
+img {
+  border-style: none;
+  padding: 2.5%;
 }
 
 article.tweet header {
   display: flex;
   justify-content: space-between;
-  padding: 1em 1em;
-  align-items: center;
+  padding: 2.5%;
+  font-size: 1rem;
 }
 
-.profile-pic {
-  font-size: 1.5em;
+article.tweet p {
+  margin: 5%;
 }
+
+article.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 3%;
+  font-size: 1rem;
+}
+
+
 
 .tweet header i.fas {
   font-size: 2em;
   margin-right: 0.3em;
 }
 
-article.tweet footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 0.1em 1em;
-}
+
 .fa-angle-double-down {
   color: red;
 }
@@ -55,3 +71,13 @@ article.tweet footer {
 .fa-heart:hover {
   color: #ff6a6a;
 }
+
+.fa-exclamation-triangle {
+  color: red;
+}
+
+.error-msg {
+  color: red;
+  font-family: 'Bungee';
+}
+

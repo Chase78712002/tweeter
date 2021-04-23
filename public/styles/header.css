@@ -10,3 +10,14 @@
   background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");
   margin-top: 5em;
 }
+
+/* h2 {
+  font-family: Bungee;
+  margin-block-start: 0.1em;
+} */
+
+.topHeader h2 {
+  color: blanchedalmond;
+  font-size: 2rem;
+  font-family: "Original Surfer";
+}
