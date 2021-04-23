@@ -119,6 +119,9 @@ $(document).ready(() => {
     }
     $("button#toTop").click(()=> {
       $(window).scrollTop(0);
+      $(".tweetForm").slideDown(700, function() {
+        $(this).children('textarea').focus();
+      });
     })
   })
 
