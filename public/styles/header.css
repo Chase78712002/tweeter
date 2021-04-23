@@ -21,3 +21,19 @@
   font-size: 2rem;
   font-family: "Original Surfer";
 }
+
+@media screen and (min-width: 768px) {
+  .topHeader {
+    width: 40%;
+    height: 100vh;
+    margin-top: 0em;
+    justify-content: center;
+    position:fixed;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .topHeader {
+    width: 50%;
+  }
+}

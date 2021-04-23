@@ -79,5 +79,24 @@ article.tweet footer {
 .error-msg {
   color: red;
   font-family: 'Bungee';
+  font-size: 1rem;
 }
 
+button#toTop {
+  position: fixed;
+  display: none;
+  bottom: 20px;
+  right: 10px;
+  z-index: 99;
+  color: tomato;
+  border: none;
+  font-size: 80px;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+button#toTop:hover {
+  background-color: orangered;
+  color: ghostwhite;
+}

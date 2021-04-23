@@ -10,7 +10,7 @@
   border-bottom: 5px solid #642c05;
   resize: none;
   background: transparent;
-  font-family: 'Bungee';
+  font-family: "Bungee";
   font-size: 1.1rem;
 }
 
@@ -23,7 +23,7 @@
 }
 ::placeholder {
   color: #a78f7d;
-  font-family: 'Bungee';
+  font-family: "Bungee";
   font-size: 0.8rem;
 }
 .counter {
@@ -37,17 +37,43 @@
 .tweetForm div {
   display: flex;
   justify-content: space-between;
-  font-size: 0.6em;
 }
 label {
   align-self: center;
-  font-family: 'Original Surfer';
+  font-family: "Original Surfer";
   font-weight: 600;
 }
 form button {
   background-color: #4156a1;
-  color: #FFFF;
-  font-family: 'Bungee';
+  color: #ffff;
+  font-family: "Bungee";
   padding: 1em;
   border-radius: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  #max-char {
+    font-size: 12px;
+    align-self: center;
+  }
+  form button {
+    font-size: 12px;
+  }
+}
+
+
+@media screen and (min-width: 768px) {
+  #max-char {
+    font-size: 12.5px;
+    align-self: center;
+  }
+  form button {
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #max-char {
+    font-size: 15px;
+  }
 }

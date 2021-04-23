@@ -105,4 +105,21 @@ $(document).ready(() => {
     })
   })
 
+  // Compose button
+  $("#navTweet").click(function(){
+    $(".tweetForm").slideToggle(700, function() {
+      $(this).children('textarea').focus();
+    });
+  })
+
+  $(window).scroll(function() {
+    $("button#toTop").fadeIn();
+    if($(this).scrollTop() === 0) {
+      $("button#toTop").fadeOut();
+    }
+    $("button#toTop").click(()=> {
+      $(window).scrollTop(0);
+    })
+  })
+
 });

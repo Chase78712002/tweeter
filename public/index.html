@@ -73,27 +73,29 @@
           
           <div class="error-msg" id="space-error">
             <i class="fas fa-exclamation-triangle"></i>
-            Please enter at least one character in the text field!
+            The text field is empty!
             <i class="fas fa-exclamation-triangle"></i>
           </div>
-          <div class="error-msg" id="max-char">
-            <i class="fas fa-exclamation-triangle"></i>
-            Max character counts exceeded!!
-            <i class="fas fa-exclamation-triangle"></i>
-          </div>
+          
           <form action="/tweets/" , method="POST" class="tweetForm">
             <label for="text">Compose Tweet</label>
             <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
             <div>
-              <button type="submit">Tweet</button>
-              
+              <button type="submit" id="tweetButton">Tweet</button>
+              <div class="error-msg" id="max-char">
+                <i class="fas fa-exclamation-triangle"></i>
+                Max character counts: 140!
+                <i class="fas fa-exclamation-triangle"></i>
+              </div>
               <output name="counter" class="counter" for="tweet-text">140</output>
             </div>
             
           </form>
         </section>
-  
         <section class="tweet-container"></section>
+        <button id="toTop" title="Go to top">
+          <i class="fas fa-hand-point-up"></i>
+        </button>
       </main>
     </main>
   </body>
